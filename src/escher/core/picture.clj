@@ -6,7 +6,6 @@
   (:import java.awt.geom.Line2D java.awt.Color))
 
 (defn drawline [p1 p2 g]
-  (println (:x p1) (:y p1) (:x p2) (:y p2))
   (.drawLine g (:x p1) (:y p1) (:x p2) (:y p2))
   )
 
