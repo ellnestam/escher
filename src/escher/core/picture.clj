@@ -27,11 +27,56 @@
     (pic1 (make-rect
       (:origin rect)
       (scale a (:horiz rect))
-      (:vert rect)))
+      (:vert rect)
+      (:graphics rect)
+      ))
 
     (pic2 (make-rect
       (+vect (:origin rect) (scale a (:horiz rect)))
       (scale (- 1 a) (:horiz rect))
-      (:vert rect)))
+      (:vert rect)
+      (:graphics rect)
+      ))
     )
+  )
+
+(defn above [pic1 pic2 a]
+  (fn [rect]
+    (pic1 (make-rect
+      (:origin rect)
+      (:horiz rect)
+      (scale a (:vert rect))
+      (:graphics rect)
+      ))
+
+    (pic2 (make-rect
+      (+vect (:origin rect) (scale a (:vert rect)))
+      (:horiz rect)
+      (scale (- 1 a) (:vert rect))
+      (:graphics rect)
+      ))
+    )
+  )
+
+(defn rotate90 [pic]
+  (fn [rect]
+    pic (make-rect
+	 ('vect (:origin rect)
+		(:horiz rect))
+	 (:vert rect)
+	 (scale -1 (:horiz rect))
+	 :graphics rect
+	 )
+    )
+  )
+
+(defn right-push [pic n a]
+  (if (= n 0)
+    pic
+    (beside pic (right-push pic (- n 1) a)
+	    a
+	    )))
+
+(defn up-push []
+
   )
