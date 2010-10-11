@@ -14,18 +14,16 @@
 
 (defn myart []
 
-  (def s1 (make-segment 0 0.5 0.5 0))
-  (def s2 (make-segment 0.5 0 1 0.5))
-  (def s3 (make-segment 1 0.5 0.5 1))
-  (def s4 (make-segment 0.5 1 0 0.5))
-  (def pic (make-picture [s1 s2 s3 s4]))
-
-  (def bigger (beside pic (beside pic pic 0.75) 0.25))
-
-  (rotate90 (make-picture [( make-segment 0.5 0 0.5 1)]))
   
-  (rotate90 (above bigger bigger 0.5))
-  )
+  (let
+      [s1 (make-segment 0 0.5 0.5 0)
+       s2 (make-segment 0.5 0 1 0.5)
+       s3 (make-segment 1 0.5 0.5 1)
+       s4 (make-segment 0.5 1 0 0.5)
+       pic (make-picture [s1 s2 s3 s4])
+       bigger (beside pic (beside pic pic 0.75) 0.25)]
+
+    ( rotate90 (above bigger bigger 0.5))))
 
 
 (defn make-art [g]
