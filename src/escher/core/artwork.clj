@@ -9,8 +9,8 @@
 
 
 (def origin (make-vect 0 0))
-(def x-axis (make-vect 200 0))
-(def y-axis (make-vect 0 200))
+(def x-axis (make-vect 100 0))
+(def y-axis (make-vect 0 100))
 
 (defn myart []
 
@@ -18,12 +18,13 @@
   (def s2 (make-segment 0.5 0 1 0.5))
   (def s3 (make-segment 1 0.5 0.5 1))
   (def s4 (make-segment 0.5 1 0 0.5))
-
   (def pic (make-picture [s1 s2 s3 s4]))
 
   (def bigger (beside pic (beside pic pic 0.75) 0.25))
 
-  (above bigger bigger 0.5)
+  (rotate90 (make-picture [( make-segment 0.5 0 0.5 1)]))
+  
+  (rotate90 (above bigger bigger 0.5))
   )
 
 

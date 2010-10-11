@@ -21,8 +21,9 @@
   )
 
 (defn scale [s vect]
-  (make-vect
-    (* s (:x vect))
-    (* s (:y vect))
-    )
-  )
+  (make-vect  (* s (:x vect))
+              (* s (:y vect))))
+
+(defn prim-vect [v1 v2]
+  (make-vect (:x v1)
+	     (:y v2)))
