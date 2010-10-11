@@ -57,5 +57,4 @@
 (defn right-push [pic n a]
   (if (= n 0)
     pic
-    (beside pic (right-push pic (- n 1) a)
-	    a)))
+    (beside pic (right-push pic (- n 1) a) a)))
